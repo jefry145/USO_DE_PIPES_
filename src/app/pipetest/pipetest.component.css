@@ -1,0 +1,25 @@
+h2{
+    font-weight: 600;
+}
+label{
+    color: rgb(59, 59, 59);
+}
+input{
+    box-shadow: 0 2px 8px 2px rgb(206, 206, 206);
+    color: rgb(190, 190, 190);
+}
+select{
+    box-shadow: 0 2px 8px 2px rgb(206, 206, 206);
+    width: 20%;  
+}
+span{
+    color: rgb(209, 154, 50);
+}
+p{
+    color: rgb(51, 150, 150);
+}
+@media (max-width: 991px) {
+    select{
+        width: 50%;
+    }
+}

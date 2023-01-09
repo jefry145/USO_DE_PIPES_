@@ -1,0 +1,91 @@
+<div class="container font-monospace">
+<div class="row">
+    <div class="col px-4 py-4">
+        <h2>USO DE PIPES UPPERCASE Y LOWERCASE</h2>
+    </div>
+</div>
+<div class="row">
+     <div class="col px-5 py-2">
+        <label for="texto1">Ingresa un texto:</label><br>
+        <input id="texto1" class="form-control" type="text" [(ngModel)]="valor">
+     </div>
+     <div class="col py-3">
+        <span>Resultado:</span><p>{{valor | uppercase}}</p>
+     </div>
+</div>
+
+<!-- EJERCICIO02 -->
+<div class="row">
+    <div class="col px-4 py-4">
+        <h2>USO DE PIPES CURRENCY</h2>
+    </div>
+</div>
+<div class="row">
+     <div class="col px-5">
+        <label for="Moneda">Ingresa una cantidad de dinero</label><br>
+        <input class="form-control" id="Moneda" type="number" [(ngModel)]="cifra">
+     </div>
+     <div class="col py">
+       <label for="cambio">Seleciona un tipo de cambio:</label>
+       <select class="form-select" name="moneda" id="cambio" [(ngModel)]="cambioDeMoneda" (ngModelChange)="verificarCambio()">
+            <option value="" disabled="disabled" selected="true">Select</option> 
+            <option value="euro">EUR</option>
+            <option value="dolar">USD</option>
+        </select>
+     </div>
+</div>
+<div class="row">
+    <div class="col px-5 py-4">
+        <span for="">Resultado:</span>
+        <div class="eur" *ngIf="show ; else elseblock">
+            <p>{{cifra | currency : "EUR"}}</p>
+        </div>
+        <ng-template #elseblock> 
+            <p>{{cifra | currency : "USD"}}</p>
+        </ng-template>         
+    </div>
+</div>
+<!-- ACTIVIDAD LISTADO CON PIPE PERSONALIZADO -->
+
+<div class="row">
+    <div class="col px-4 py-4">
+        <h2>USO DE PIPES LISTA </h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <input class="form-control" type="text" [(ngModel)]="textList1">
+    </div>
+    <div class="col-3">
+        <button class="btn btn-outline-info"  (click)="agregar()">Agregar a la lista:</button>
+    </div>
+    <div class="col-3">
+        <input  placeholder="Buscar" class="form-control" type="text" [(ngModel)]="criterio">
+    </div>
+</div>
+<div class="row py-4 px-3">
+    <div class="col">
+        <tr class="col" *ngFor="let element of paises">
+            <th>{{element}}</th> 
+        </tr>
+    </div>
+    <div class="col">
+        <tr class="col" *ngFor="let element of paises | filterOrder:criterio">
+            <th>{{element}}</th> 
+        </tr>
+    </div>
+</div>
+<!-- ACTIVIDAD ASINCRONA USP DE JSON PIPE-->
+<div class="row">
+    <div class="col px-4 py-4">
+        <h2>USO DE PIPES JSON PIPE</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        {{productos | JsonPipe}}
+    </div>
+</div>
+<div class="row py-5">
+</div>
+</div>
