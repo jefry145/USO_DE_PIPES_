@@ -11,6 +11,7 @@ export class PipetestComponent {
 
   show = true
 
+  
   cambioDeMoneda!:string
 
   verificarCambio(){
