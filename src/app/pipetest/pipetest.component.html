@@ -1,0 +1,22 @@
+<p>USO DE PIPES</p>
+valor: <input type="text" [(ngModel)]="valor">
+<p>resultado:{{valor | uppercase}}</p>
+
+
+
+
+
+
+<p>USO DE PIPES</p>
+valor: <input type="number" [(ngModel)]="cifra">
+<select name="moneda" id="" [(ngModel)]="cambioDeMoneda" (ngModelChange)="verificarCambio()">
+    <option value="euro">EUR</option>
+    <option value="dolar">USD</option>
+</select>
+<div class="eur" *ngIf="show ; else elseblock">
+    <p>{{cifra | currency : "EUR"}}</p>
+</div>
+<ng-template #elseblock> 
+    <p>{{cifra | currency : "USD"}}</p>
+</ng-template> 
+    
